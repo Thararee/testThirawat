@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ถิรวัฒน์ วงค์ทอง - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #0a0e27 0%, #1a1a3e 50%, #2d1b4e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .planet1 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+            top: 15%;
+            left: 10%;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .planet2 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 30% 30%, #ffd93d, #f59f00);
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+            box-shadow: 0 0 60px rgba(255, 217, 61, 0.4);
+        }
+
+        .planet3 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #74c0fc, #1864ab);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+            box-shadow: 0 0 40px rgba(116, 192, 252, 0.5);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .meteor {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+            animation: meteor 3s linear infinite;
+        }
+
+        @keyframes meteor {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-300px) translateY(300px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            max-width: 600px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            font-weight: bold;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b, #74c0fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #b0b0ff;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .description {
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    <div class="planet planet3"></div>
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="avatar">ถ</div>
+            <h1>ถิรวัฒน์ วงค์ทอง</h1>
+            <p class="subtitle">🚀 Welcome to My Universe</p>
+            <p class="description">
+                สวัสดีครับ! ผม ถิรวัฒน์ วงค์ทอง<br>
+                ยินดีต้อนรับสู่จักรวาลส่วนตัวของผม<br>
+                ที่นี่คือพื้นที่แห่งความคิดสร้างสรรค์และความฝัน<br>
+                พร้อมที่จะสำรวจไปด้วยกันไหมครับ?
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-btn">📧 Contact</a>
+                <a href="#" class="social-btn">💼 Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // สร้างดาว
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // สร้างอุกกาบาต
+        setInterval(() => {
+            const meteor = document.createElement('div');
+            meteor.className = 'meteor';
+            meteor.style.left = Math.random() * 100 + '%';
+            meteor.style.top = Math.random() * 50 + '%';
+            meteor.style.animationDuration = Math.random() * 2 + 2 + 's';
+            starsContainer.appendChild(meteor);
+            
+            setTimeout(() => meteor.remove(), 3000);
+        }, 2000);
+    </script>
+</body>
+</html>
